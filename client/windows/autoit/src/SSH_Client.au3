@@ -7,6 +7,9 @@
 
 #ce ----------------------------------------------------------------------------
 #include <File.au3>
+
+#include <Array.au3>
+#include "JSON.au3"
 #include <MsgBoxConstants.au3>
 
 Const $strRegAddTemplate = @ScriptDir & "\registry_add_template.reg"
@@ -88,21 +91,31 @@ Func intToRegistryDWORD($intNumber)
 EndFunc
 
 Func GetConfig()
-	; For Now, all data is static for testing
-	; Next, data will be retrieved from a remote WebService in a structured JSON format
-	$strHost = "192.168.103.210"
-	$strSSHPort = 22
-	$strSession = "temporary_session_for_vpn-ssh-gateway"
-	$strUsername = "tunneltest"
-	$strPassword = "tunneltest"
+	$jsonData = FileRead("D:\TMP\vpn-ssh-gateawy\client\windows\autoit\src\json_data.txt")
+	$jsonConfig = _JSONDecode($jsonData)
+	$strHost =  _JSONDecode($jsonConfig, 'host')
+	$strSSHPort =  _JSONDecode($jsonData, 'port')
+	$strSession =  _JSONDecode($jsonData, 'session')
+	$strUsername =  _JSONDecode($jsonData, 'user')
+	For $i = 0 to UBound($jsonConfig)-1
+		switch $jsonConfig[$i][0]
+			Case 'host'
+				$strHost = $jsonConfig[$i][1]
+			Case 'port'
+				$strSSHPort = $jsonConfig[$i][1]
+			Case 'session'
+				$strSession = $jsonConfig[$i][1]
+			Case 'user'
+				$strUsername = $jsonConfig[$i][1]
+			Case 'tunnels'
+				$arrTunnels =  $jsonConfig[$i][1]
+				ExitLoop
+			;Case Else
+		EndSwitch
+	Next
 	$strPubKey = @ScriptDir & "\user.ppk"
-	_ArrayAdd($arrTunnels, "10.172.1.21:23")
-	_ArrayAdd($arrTunnels, "10.172.1.20:23")
-	_ArrayAdd($arrTunnels, "192.168.100.4:3389")
-	_ArrayDelete($arrTunnels,0) ; AutoIt doesn't handle empty array definition, so we defined an aray with 1 empty element, we remove this element so that iterating through the Array won't work properly
 
 EndFunc
-
 Func CheckLocalPortAvailable($intPort)
 	OnAutoItExitRegister("OnAutoItExit")
 	TCPStartup()
@@ -151,5 +164,4 @@ Func genTunnelSetting($strIPPort)
 	$localUsedPorts = $localUsedPorts & ";" & $lPort
 	return "L" & $lPort & "=" & $strIPPort
 EndFunc
-
 Main()
