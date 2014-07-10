@@ -1,3 +1,3 @@
 Windows Registry Editor Version 5.00
-start "" putty -load "srv-olf01" -pw olfeoolfeo
+
 [-HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions\###SESSION]
