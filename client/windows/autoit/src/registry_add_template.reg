@@ -2,10 +2,11 @@ Windows Registry Editor Version 5.00
 
 [HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions\###SESSION]
 "HostName"="###HOSTNAME"
-"PortNumber"=###PORT
+"PortNumber"=###PORTSSH
 "UserName"="###USERNAME"
-"PortForwardings"=""
+"PortForwardings"="###PORTWORWARDING"
 "WinTitle"="###SESSION"
+"PublicKeyFile"="###PUBKEY"
 "Present"=dword:00000001
 "LogFileName"="putty.log"
 "LogType"=dword:00000000
@@ -45,7 +46,6 @@ Windows Registry Editor Version 5.00
 "SshNoShell"=dword:00000000
 "SshProt"=dword:00000002
 "SSH2DES"=dword:00000000
-"PublicKeyFile"=""
 "RemoteCommand"=""
 "RFCEnviron"=dword:00000000
 "PassiveTelnet"=dword:00000000
@@ -159,7 +159,7 @@ Windows Registry Editor Version 5.00
 "X11Forward"=dword:00000000
 "X11Display"=""
 "X11AuthType"=dword:00000001
-"LocalPortAcceptAll"=dword:00000001
+"LocalPortAcceptAll"=dword:00000000
 "RemotePortAcceptAll"=dword:00000000
 "BugIgnore1"=dword:00000000
 "BugPlainPW1"=dword:00000000
