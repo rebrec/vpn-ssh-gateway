@@ -19,7 +19,6 @@
 
 Func Main()
 	if getConfig($jsonURL) Then
-		msgBox(0,"Content", "strHost : " & getStrHost())
 		KillWindowName($strWINTITLE)
 		startSSHTunnel($strSession, @SW_MAXIMIZE, 1)
 

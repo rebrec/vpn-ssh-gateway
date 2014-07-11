@@ -15,6 +15,7 @@ SET BUILD_TMP_CLIENT=%BUILD_TMP%\setup.exe
 SET BUILD_TMP_ARCHIVE=%BUILD_TMP%\archive.7z
 REM Third party tools to be included into the archive
 SET BUILD_TMP_THIRDPARTY=%THIRD_PARTY%\putty.exe %THIRD_PARTY%\vncviewer.exe
+SET BUILD_TMP_OTHERFILES=%AUTOIT_SOURCE%\*.reg 
 
 SET SFX_CONFIG=%AUTOIT_SOURCE%\config.txt
 SET SFX_STUBS=%SEVENZIPSFX_DIR%\3rdParty\Modules
