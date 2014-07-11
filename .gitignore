@@ -1,4 +1,5 @@
 tools/
+tmp/
 temporary_session_for_vpn-ssh-gateway*.reg
 temporary_key
 temporary_key.pub
