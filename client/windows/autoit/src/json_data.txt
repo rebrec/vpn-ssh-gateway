@@ -1,0 +1,11 @@
+{
+  "host": "192.168.103.210",
+  "port": 22,
+  "session": "temporary_session_for_vpn-ssh-gatewayjson",
+  "user": "tunneltest",
+  "tunnels": [
+    "10.172.1.21:23",
+    "10.172.1.20:23",
+    "192.168.100.4:3389"
+  ]
+}
