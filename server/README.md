@@ -40,3 +40,14 @@ vi /usr/share/nginx/www/info.php
 <?php
 phpinfo();
 ?>
+
+Linux configuration
+--
+To enable user creation by the php script, we have to made a few modifications :
+modify /etc/sudoers like 
+> www-data ALL=(root) NOPASSWD: /usr/sbin/useradd
+
+Might have to also comment  
+> Defaults requiretty
+
+
