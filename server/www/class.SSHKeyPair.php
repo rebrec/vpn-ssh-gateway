@@ -16,7 +16,7 @@ class SSHKeyPair
 	
     public function __construct( $strSession,  $intSize = 2048, $strType = 'rsa')
     {
-    	$this->strTemporaryKey = Configuration::TEMPORARY_ROOT_DIRECTORY; 
+    	$this->strTemporaryKey = Configuration::PROJECT_ROOT . Configuration::TEMPORARY_ROOT_DIRECTORY; 
 		$this->strSession = $strSession;
 		$this->intSize = $intSize;
 		$this->strType = $strType;
