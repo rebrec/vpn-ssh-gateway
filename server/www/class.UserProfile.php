@@ -40,16 +40,22 @@ class UserProfile
 	}
 	public function DelUserProfile()
 	{
+		// Kill Running processes owned by username
+		$cmd = "sh " . Configuration::PROJECT_ROOT . Configuration::BASH_KILLPROCESSES . " " . $this->strUsername;
+		echo "Running Command : " . $cmd;
+		$res = passthru($cmd);
+		// Delete User
 		$cmd = 'deluser ' . $this->strUsername;
 		echo "Running Command : " . $cmd;
 		$res = passthru($cmd);
+		// Remove Profile Directory
 		$cmd = 'rm -rf ' . $this->GetProfilePath();
 		echo "Running Command : " . $cmd;
 		$res = passthru($cmd);
 	}
     public function AddAuthKey($authKey)
     {
-		$authKey->AddToFile($this->strProfilePath . '/' . Configuration::SSH_DIRECTORY . "/" . Configuration::AUTHORIZEDKEYS_FILENAME);
+		$authKey->AddToFile($this->strUsername, $this->strProfilePath . '/' . Configuration::SSH_DIRECTORY . "/" . Configuration::AUTHORIZEDKEYS_FILENAME);
     }
 
 } /* end of class UserProfile */

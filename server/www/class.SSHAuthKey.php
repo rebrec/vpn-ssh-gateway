@@ -39,10 +39,11 @@ class SSHAuthKey
 		return $res;
         
     }
-	public function AddToFile($strFilePath)
+	public function AddToFile($strUser, $strFilePath)
 	{
 		file_put_contents($strFilePath, $this->GetAuthKeyString());
 		chmod($strFilePath, Configuration::AUTHORIZEDKEYS_OCTAL_MASK);
+		chown($strFilePath, $strUser);
 	}
     public function GetAuthKeyString()
     {
