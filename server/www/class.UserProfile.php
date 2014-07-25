@@ -12,7 +12,10 @@ class UserProfile
     {
 		$this->strUsername = $strUsername;
 		$this->strProfilePath = Configuration::PROFILE_HOME_DIRECTORY . "/" . $this->strUsername;
-		$this->AddUser();
+		if (!($this->UserExists()))
+		{
+			$this->AddUser();
+		}
 	}
 
     public function GetProfilePath()
@@ -58,6 +61,17 @@ class UserProfile
 		$authKey->AddToFile($this->strUsername, $this->strProfilePath . '/' . Configuration::SSH_DIRECTORY . "/" . Configuration::AUTHORIZEDKEYS_FILENAME);
     }
 
+	public function UserExists() // return true if user already created (used to be able to map to a userprofile object to remove it from system/filesystem)
+	{
+		if (is_dir($this->strProfilePath))
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
 } /* end of class UserProfile */
 
 ?>
