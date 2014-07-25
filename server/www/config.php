@@ -14,6 +14,7 @@ class Configuration
 	const PROFILE_HOME_DIRECTORY 		= "/home";
 	const PROFILE_SKEL_DIRECTORY		= "server/bash/skel";
 	const BASH_ADDUSER_CONFIGURATION	= "server/bash/adduser.conf"; 
+	const BASH_ADDUSER_SCRIPT			= "server/bash/adduser.sh"; 
 	const BASH_KILLPROCESSES			= "server/bash/kill_userprocesses.sh";
 	
 	const VPN_SSH_SERVER_HOST			= "192.168.103.210";

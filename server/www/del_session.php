@@ -19,7 +19,9 @@ print_r(array_keys($ticket));
 $username = $ticket['user'];
 echo "Trying to remove profile of username $username ...</br>";
 $u = new UserProfile($username);
+echo "Trying to remove profile of username $username ...</br>";
+echo "Profile directory : " . $u->GetProfilePath();
 $u->DelUserProfile();
 echo "Trying to remove session $session ...</br>";
 $db->tickets->remove( array('auth_key' => $session) );
- 
+  

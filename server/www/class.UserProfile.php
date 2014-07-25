@@ -10,11 +10,16 @@ class UserProfile
 
     public function __construct($strUsername)
     {
+    	if ($strUsername == '') die("Empty Username !");
 		$this->strUsername = $strUsername;
 		$this->strProfilePath = Configuration::PROFILE_HOME_DIRECTORY . "/" . $this->strUsername;
 		if (!($this->UserExists()))
 		{
 			$this->AddUser();
+		}
+		else 
+		{
+			echo "Profile already exist, mapping to it.";	
 		}
 	}
 
@@ -25,34 +30,23 @@ class UserProfile
 
 	public function AddUser()
 	{
-		//$cmd = 'adduser --conf ' . Configuration::PROJECT_ROOT . Configuration::BASH_ADDUSER_CONFIGURATION . ' --skel ' . Configuration::PROJECT_ROOT . Configuration::PROFILE_SKEL_DIRECTORY. ' --disabled-password --gecos "automatically generated user ' . $this->strUsername . '" ' .  $this->strUsername;
-		$cmd = 'useradd';
-		$cmd = $cmd . ' --create-home --base-dir "' . Configuration::PROFILE_HOME_DIRECTORY . '"';
-		$cmd = $cmd . ' -c "automatically generated user "';
-		$cmd = $cmd . ' --no-user-group';
-		$cmd = $cmd . ' --skel "' . Configuration::PROJECT_ROOT . Configuration::PROFILE_SKEL_DIRECTORY . '"';
-		#$cmd = $cmd . ' --expiredate AAAA-MM-JJ';  
-		$cmd = $cmd . ' ' . $this->strUsername;
-		echo "---------------\n";
-		echo "---------------\n";
+		$cmd = 'sudo ' . Configuration::PROJECT_ROOT . Configuration::BASH_ADDUSER_SCRIPT . " " . $this->strUsername;
 		echo "Running command : $cmd\n";
-		echo "---------------\n";
-		echo $cmd;
 		$res = passthru($cmd);
 		echo "User Created into : " . $this->strProfilePath;
 	}
 	public function DelUserProfile()
 	{
 		// Kill Running processes owned by username
-		$cmd = "sh " . Configuration::PROJECT_ROOT . Configuration::BASH_KILLPROCESSES . " " . $this->strUsername;
+		$cmd = "sudo " . Configuration::PROJECT_ROOT . Configuration::BASH_KILLPROCESSES . " " . $this->strUsername;
 		echo "Running Command : " . $cmd;
 		$res = passthru($cmd);
 		// Delete User
-		$cmd = 'deluser ' . $this->strUsername;
+		$cmd = 'sudo deluser ' . $this->strUsername;
 		echo "Running Command : " . $cmd;
 		$res = passthru($cmd);
 		// Remove Profile Directory
-		$cmd = 'rm -rf ' . $this->GetProfilePath();
+		$cmd = 'sudo rm -rf ' . $this->GetProfilePath();
 		echo "Running Command : " . $cmd;
 		$res = passthru($cmd);
 	}

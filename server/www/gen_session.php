@@ -40,5 +40,5 @@ $db->tickets->insert($ticket);
 
 
 echo 'A New Tocken have been, generated for testint purpose.<br/>';
-echo '<a href="save_myip.php?s=' . $session . '" target="_blank">Click Here</a> to access to the register IP page...';
-echo '<a href="del_session.php?s=' . $session . '" target="_blank">Click Here</a> to Remove this Session...';
+echo '<br/><a href="save_myip.php?s=' . $session . '" target="_blank">Click Here</a> to access to the register IP page...';
+echo '<br/><a href="del_session.php?s=' . $session . '" target="_blank">Click Here</a> to Remove this Session...';
