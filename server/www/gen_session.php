@@ -25,7 +25,7 @@ $db= $con->bdTest;
 $ticket['auth_key'] = $session;
 $ticket['allowed_time'] = '1000';
 $ticket['revoke_date'] = '';
-$ticket['client_ip'] = '192.168.103.15';
+$ticket['client_ip'] = '';
 $ticket['ssh_host_ip'] = Configuration::VPN_SSH_SERVER_HOST;
 $ticket['ssh_host_port'] = Configuration::VPN_SSH_SERVER_PORT;
 $ticket['tunnels'] = $arrTunnels;
@@ -40,5 +40,5 @@ $db->tickets->insert($ticket);
 
 
 echo 'A New Tocken have been, generated for testint purpose.<br/>';
-echo '<a href="save_myip.php?s=' . $session . '" target="_blank">Click Here</a> to access to the register IP page...';
-echo '<a href="del_session.php?s=' . $session . '" target="_blank">Click Here</a> to Remove this Session...';
+echo '<br/><a href="save_myip.php?s=' . $session . '" target="_blank">Click Here</a> to access to the register IP page...';
+echo '<br/><a href="del_session.php?s=' . $session . '" target="_blank">Click Here</a> to Remove this Session...';
