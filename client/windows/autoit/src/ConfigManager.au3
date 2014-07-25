@@ -14,10 +14,8 @@ Func GetConfig($jsonURL)
 	$oHTTP.Open("GET", $jsonURL, False)
 	$oHTTP.Send()
 	$jsonData = $oHTTP.ResponseText
-	ConsoleWrite('@@ Debug(' & @ScriptLineNumber & ') : $jsonData = ' & $jsonData & @CRLF & '>Error code: ' & @error & @CRLF) ;### Debug Console
  	$oStatusCode = $oHTTP.Status
 	$jsonConfig = _JSONDecode($jsonData)
-	ConsoleWrite('@@ Debug(' & @ScriptLineNumber & ') : $jsonConfig  = ' & $jsonConfig  & @CRLF & '>Error code: ' & @error & @CRLF) ;### Debug Console
 
 	For $i = 0 to UBound($jsonConfig)-1
 		switch $jsonConfig[$i][0]
@@ -39,7 +37,6 @@ Func GetConfig($jsonURL)
 			;Case Else
 		EndSwitch
 	Next
-		ConsoleWrite('@@ Debug(' & @ScriptLineNumber & ') : $msg = ' & $msg & @CRLF & '>Error code: ' & @error & @CRLF) ;### Debug Console
 	if ($msg == "ok") Then
 		$strPubKey = @ScriptDir & "\user.ppk"
 		$file = FileOpen($strPubKey,2)

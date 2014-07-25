@@ -20,7 +20,7 @@
 Func Main()
 	if getConfig($jsonURL) Then
 		KillWindowName($strWINTITLE)
-		startSSHTunnel($strSession, @SW_MAXIMIZE, 1)
+		startSSHTunnel($strSession, $SSH_WINDOW_SHOW_FLAG, 1)
 
 	Else
 		MsgBox(0,$APPNAME, "Error While trying to retrieve configuration data from WebService")

@@ -1,6 +1,6 @@
 @ECHO OFF
 REM Comment/uncomment to debug
-SET DEBUG=y 
+rem SET DEBUG=y 
 
 SET AUTOIT_DIR=%~dp0\tools\autoit_install
 SET SEVENZIP_DIR=%~dp0\tools\7zip

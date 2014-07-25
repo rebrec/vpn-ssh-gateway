@@ -1,3 +1,4 @@
+@ECHO OFF
 REM ****************************************
 REM  Build Script by Francois Laplaud
 REM ****************************************
