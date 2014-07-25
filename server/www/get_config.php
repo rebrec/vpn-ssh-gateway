@@ -3,12 +3,16 @@ $con = new Mongo();
 $db= $con->bdTest;
 $tickets = $db->tickets;
 
-$session = "666655554444333";
+if(getenv('REMOTE_ADDR'))
+{
+	$ipaddress = getenv('REMOTE_ADDR');
+}
+else
+{
+	die("REMOTE_ADDR not defined!");
+}
 
-$query = array('auth_key' => $session);
-
-
-
+$query = array('client_ip' => $ipaddress);
 
 $ticket = $tickets->findOne($query);
 // for debugging

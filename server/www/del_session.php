@@ -1,12 +1,6 @@
 <?php
 
-include_once 'class.SSHKeyPair.php';
-include_once 'class.SSHAuthKey.php';
 include_once 'class.UserProfile.php';
-include_once 'class.Tool.php';
-include_once 'config.php';
-
-print_r(array_keys($_GET));
 
 $session = $_GET['s'];
 $con = new Mongo();

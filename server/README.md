@@ -45,7 +45,9 @@ Linux configuration
 --
 To enable user creation by the php script, we have to made a few modifications :
 modify /etc/sudoers like 
-> www-data ALL=(root) NOPASSWD: /usr/sbin/useradd
+> www-data ALL=NOPASSWD: /home/administrtateur/projet/vpn-ssh-gateway/server/bash/adduser.sh,/home/administrtateur/projet/vpn-ssh-gateway/server/bash/kill_userprocesses.sh,/usr/sbin/deluser,/bin/rm,/bin/chmod,/bin/chown,/bin/mv
+
+
 
 Might have to also comment  
 > Defaults requiretty
