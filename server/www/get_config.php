@@ -28,7 +28,7 @@ else
 }
 $jsonData['host'] = $ticket['ssh_host_ip'];
 $jsonData['port'] = $ticket['ssh_host_port'];
-$jsonData['session'] = $ticket['temporary_session_for_vpn-ssh-gateway'];
+$jsonData['session'] = $ticket['session'];
 $jsonData['user'] = $ticket['user'];
 $jsonData['private_key'] = $ticket['ppk_key'];
 $jsonData['tunnels'] = $ticket['tunnels'];
