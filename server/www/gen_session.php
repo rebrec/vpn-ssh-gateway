@@ -55,6 +55,6 @@ $ticket['ppk_key'] = $k->GetPPKKey();
   
 $db->tickets->insert($ticket);
 
-echo 'A New Tocken have been, generated for testint purpose.<br/>';
+echo 'A New Token have been, generated for testint purpose.<br/>';
 echo '<br/><a href="save_myip.php?s=' . $session . '" target="_blank">Click Here</a> to access to the register IP page...';
 echo '<br/><a href="del_session.php?s=' . $session . '" target="_blank">Click Here</a> to Remove this Session...';
