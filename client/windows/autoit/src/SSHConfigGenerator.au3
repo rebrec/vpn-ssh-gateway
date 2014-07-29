@@ -35,10 +35,16 @@ EndFunc
 Func genPuttyConfig($strHost, $strSSHPort, $strSession, $strUsername, $strPubKey)
 	Local $strRegAddFilename = getAddRegConfigName($strSession)
 	Local $strRegDelFilename = getDelRegConfigName($strSession)
-	For $arrTunnel in getArrTunnels()
-		$strPortForwarding = genTunnelSetting($arrTunnel) & "," & $strPortForwarding
+	For $i = 0 to UBound($arrTunnels)-1
+		$arrTunnel = $arrTunnels[$i]
+		; get local port available
+		$lPort = GetLocalPortAvailable()
+		; store it inside array
+		_ArrayAdd($arrTunnels[$i],"lport|" & $lPort)
+;			return "L" & $lPort & "=" & $strIPPort
+		; generate putty tunnel setting
+		$strPortForwarding = "L" & $lPort & "=" & $arrTunnel[$TUN_IP][1] & ":" & $arrTunnel[$TUN_PORT][1]  & "," & $strPortForwarding
 	Next
-	ConsoleWrite($strPortForwarding)
 	FileCopy($strRegAddTemplate, $strRegAddFilename ,1)
 	_ReplacestringInFile($strRegAddFilename, $strPatternHostname, $strHost, 0, 1)
 	_ReplacestringInFile($strRegAddFilename, $strPatternUsername, $strUsername, 0, 1)
@@ -62,7 +68,7 @@ Func intToRegistryDWORD($intNumber)
 	Return $strDword
 EndFunc
 
-Func genTunnelSetting($strIPPort)
+Func GetLocalPortAvailable()
 	Local $lPort
 
 	; Generate random port number
@@ -73,9 +79,7 @@ Func genTunnelSetting($strIPPort)
 			if CheckLocalPortAvailable($lPort) then ExitLoop
 		EndIf
 	WEnd
-		; Generate Tunnel String and save lPort so that it wont be usable again
-	$localUsedPorts = $localUsedPorts & ";" & $lPort
-	return "L" & $lPort & "=" & $strIPPort
+	return $lPort
 EndFunc
 
 Func CheckLocalPortAvailable($intPort)
