@@ -1,12 +1,12 @@
 <?php
+namespace Rebrec\VpnSSHGw;
 
-include_once 'class.SSHKeyPair.php';
-include_once 'class.SSHAuthKey.php';
-include_once 'class.UserProfile.php';
-include_once 'class.Tool.php';
-include_once 'config.php';
+use Config\Configuration;
+use Shell\SSHAuthKey;
+use Shell\SSHKeyPair;
+use Shell\Tool;
 
-$session = Tool::GenerateSessionId();
+$session = "";//Tool::GenerateSessionId();
 $username = "usr-$session"; 
 $arrTunnels = array(
     array('name' => "Swrt-Coulaines-CTA-1",
@@ -55,6 +55,6 @@ $ticket['ppk_key'] = $k->GetPPKKey();
   
 $db->tickets->insert($ticket);
 
-echo 'A New Token have been, generated for testint purpose.<br/>';
+echo 'A New Tocken have been, generated for testint purpose.<br/>';
 echo '<br/><a href="save_myip.php?s=' . $session . '" target="_blank">Click Here</a> to access to the register IP page...';
 echo '<br/><a href="del_session.php?s=' . $session . '" target="_blank">Click Here</a> to Remove this Session...';

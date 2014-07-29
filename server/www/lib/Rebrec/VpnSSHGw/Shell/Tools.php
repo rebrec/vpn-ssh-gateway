@@ -1,14 +1,13 @@
 <?php
-include_once 'config.php';
+namespace Rebrec\VpnSSHGw;
 
-class Tool
+use Config\Configuration;
+
+
+class Tools
 {
-
 	public static function GenerateSessionId()
 	{
 		return bin2hex(openssl_random_pseudo_bytes(Configuration::TOOL_SESSION_CAR_NUMBER));
 	}
-
-
-	
 }

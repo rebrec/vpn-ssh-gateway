@@ -1,5 +1,7 @@
 <?php
-include_once 'config.php';
+namespace Rebrec\VpnSSHGw;
+
+use Config\Configuration;
 
 error_reporting(E_ALL);
 

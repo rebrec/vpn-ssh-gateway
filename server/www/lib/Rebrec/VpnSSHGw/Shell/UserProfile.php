@@ -1,8 +1,9 @@
 <?php
-error_reporting(E_ALL);
 namespace Rebrec\VpnSSHGw;
 
 use Config\Configuration;
+
+error_reporting(E_ALL);
 
 class UserProfile
 {

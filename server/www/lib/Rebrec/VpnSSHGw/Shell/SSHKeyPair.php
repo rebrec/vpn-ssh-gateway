@@ -1,8 +1,7 @@
 <?php
-namespace Rebrec\VpnSSHGw\Shell;
+namespace Rebrec\VpnSSHGw;
 
-
-include_once 'config.php';
+use Config\Configuration;
 
 error_reporting(E_ALL);
 
@@ -71,5 +70,4 @@ class SSHKeyPair
 		return $this->strPuttyPPK;
     }
 
-} /* end of class SSHKeyPair */
-
+}

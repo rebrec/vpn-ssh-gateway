@@ -1,4 +1,5 @@
 <?php
+namespace Rebrec\VpnSSHGw;
 
 include_once 'class.UserProfile.php';
 
@@ -20,6 +21,4 @@ $ticket['client_ip']=$ipaddress ;
 $db->tickets->update($query,$ticket);
 
 echo "Saving Allowing IP $ipaddress  for session $session ...</br>";
-  
-// Function to get the client IP address
-    
+

@@ -1,4 +1,6 @@
 <?php
+namespace Rebrec\VpnSSHGw;
+
 $con = new Mongo();
 $db= $con->bdTest;
 $tickets = $db->tickets;
