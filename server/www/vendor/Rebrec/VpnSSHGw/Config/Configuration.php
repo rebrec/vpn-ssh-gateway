@@ -1,4 +1,6 @@
 <?php
+namespace Rebrec\VpnSSHGw\Config;
+
 class Configuration
 {
 	const TOOL_SESSION_CAR_NUMBER		= 10; // the session_key will be twice this length

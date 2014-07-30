@@ -1,8 +1,7 @@
 <?php
 namespace Rebrec\VpnSSHGw;
 
-use Config\Configuration;
-
+use Rebrec\VpnSSHGw\Config\Configuration as Configuration;
 
 class Tools
 {

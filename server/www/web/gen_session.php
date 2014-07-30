@@ -1,12 +1,9 @@
 <?php
-namespace Rebrec\VpnSSHGw;
+require_once __DIR__.'/../vendor/autoload.php'; 
 
-use Config\Configuration;
-use Shell\SSHAuthKey;
-use Shell\SSHKeyPair;
-use Shell\Tool;
+use Rebrec\VpnSSHGw\Config\Configuration as Configuration;
 
-$session = "";//Tool::GenerateSessionId();
+$session = Rebrec\VpnSSHGw\Tools::GenerateSessionId();
 $username = "usr-$session"; 
 $arrTunnels = array(
     array('name' => "Swrt-Coulaines-CTA-1",
@@ -32,9 +29,9 @@ $arrTunnels = array(
     )
 );
 
-$u = new UserProfile($username);
-$k = new SSHKeyPair($session);
-$a = new SSHAuthKey($k->GetPubKey(), $arrTunnels);
+$u = new Rebrec\VpnSSHGw\Shell\UserProfile($username);
+$k = new Rebrec\VpnSSHGw\Shell\SSHKeyPair($session);
+$a = new Rebrec\VpnSSHGw\Shell\SSHAuthKey($k->GetPubKey(), $arrTunnels);
 $u->AddAuthKey($a);
 
 $con = new Mongo();

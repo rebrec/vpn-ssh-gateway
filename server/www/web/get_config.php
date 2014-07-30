@@ -1,5 +1,6 @@
 <?php
-namespace Rebrec\VpnSSHGw;
+require_once __DIR__.'/../vendor/autoload.php'; 
+
 
 $con = new Mongo();
 $db= $con->bdTest;
@@ -15,7 +16,6 @@ else
 }
 
 $query = array('client_ip' => $ipaddress);
-
 $ticket = $tickets->findOne($query);
 // for debugging
 //echo '<pre>'; print_r($ticket); echo '</pre>';

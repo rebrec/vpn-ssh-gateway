@@ -1,7 +1,6 @@
 <?php
-namespace Rebrec\VpnSSHGw;
+require_once __DIR__.'/../vendor/autoload.php'; 
 
-include_once 'class.UserProfile.php';
 
 $session = $_GET['s'];
 if(getenv('REMOTE_ADDR'))

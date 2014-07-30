@@ -1,6 +1,7 @@
 <?php
+require_once __DIR__.'/../vendor/autoload.php'; 
 
-include_once 'class.UserProfile.php';
+use Rebrec\VpnSSHGw\Shell\UserProfile as UserProfile;
 
 $session = $_GET['s'];
 $con = new Mongo();
