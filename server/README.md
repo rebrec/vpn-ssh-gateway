@@ -26,6 +26,35 @@ add this :
                 include fastcgi_params;
         }
 
+##################
+New configuration if using Silex MicroFramework
+         location = / {
+ 32                 try_files @site @site;
+ 33         }
+ 34
+ 35         location / {
+ 36                 #if (!-e $request_filename){ rewrite ^(.*)$ /silexsite/public/index.php break; }
+ 37                 # First attempt to serve request as file, then
+ 38                 # as directory, then fall back to displaying a 404.
+ 39                 try_files $uri $uri/ @site;
+ 40                 # Uncomment to enable naxsi on this location
+ 41                 # include /etc/nginx/naxsi.rules
+ 42         }
+ 43
+ 44         location @site {
+ 45                 fastcgi_pass unix:/var/run/php5-fpm.sock;
+ 46                 include fastcgi_params;
+ 47                 fastcgi_param SCRIPT_FILENAME $document_root/silexsite/public/index.php;
+ 48         }
+ 49
+
+
+
+#################
+
+
+
+
 
 
 add this line to php.ini

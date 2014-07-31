@@ -1,0 +1,54 @@
+<!doctype html>
+
+<html lang="fr-FR">
+<head>
+    <meta charset="UTF-8">
+    <title>SilexSkeleton</title>
+    <link rel="stylesheet" href="{{ url('index.index') }}bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="{{ url('index.index') }}css/default.css">
+
+    <script type="text/javascript" src="{{ url('index.index') }}bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript" src="{{ url('index.index') }}bootstrap/js/jquery-1.11.1.min.js"></script>
+
+
+</head>
+<body>
+<header>
+    <body data-spy="scroll" data-target=".navbar">
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner"><section id="I-F" noNumber="1">
+
+            <div class="container">
+                <a class="brand" href="#">SilexSkeleton</a>
+
+                <div class="nav-collapse collapse">
+                    <p class="navbar-text pull-right">
+
+                        <b>Nous sommes le {{ "now"|date("d/m/Y") }} </b>
+                    </p>
+                    <ul class="nav" role="navigation">
+                        <li><a href="{{ path("index.index") }}">Accueil</a></li>
+                        <li><a href="{{ path("index.info") }}">Info</a></li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</header>
+<div id="content">
+
+    {% block content %}ls 
+    {% endblock %}
+
+</div>
+
+<footer>
+
+</footer>
+
+</body>
+</html>
