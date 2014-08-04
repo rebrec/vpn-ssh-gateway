@@ -1,7 +1,3 @@
-body
-{
-    margin-top: 70px;
-}
 html
 {
     position: relative;
@@ -9,12 +5,13 @@ html
 
 body
 {
-    font: 11px Verdana, Arial, Helvetica, sans-serif;
-    background-color: #efefef;
-    /* margin:1px;
-    padding:0px;*/
+    margin-top: 70px;
+    margin-left: 70px;
+//    font: 11px Verdana, Arial, Helvetica, sans-serif;
+    background-color: #f8f8f8;
 
 }
+/*
 
 
 footer
@@ -72,3 +69,4 @@ footer
     display: inline;
     width: 15px;
 }
+*/

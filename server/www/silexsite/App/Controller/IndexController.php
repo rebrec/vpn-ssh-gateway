@@ -28,9 +28,19 @@ class IndexController implements ControllerProviderInterface
         $index->match("/", 'App\Controller\IndexController::index')->bind("index.index");
         $index->match("/info", 'App\Controller\IndexController::info')->bind("index.info");
 
-
+        $index->match("/usertest", "App\Controller\IndexController::usertest");
+        
 
         return $index;
+    }
+    
+    public function usertest(Application $app)
+    {
+        $sql = "SELECT * FROM users WHERE id = 1";
+        $user = $app['db']->fetchAssoc($sql, array((int) $id));
+        
+        return  "<h1>{$user['name']}</h1>".
+            "<p>{$post['id']}</p>";
     }
 
 

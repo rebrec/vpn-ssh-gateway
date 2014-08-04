@@ -26,5 +26,16 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
 
 $app->register(new Silex\Provider\UrlGeneratorServiceProvider());
 
+$app->register(new Silex\Provider\DoctrineServiceProvider(), array(
+    'db.options' => array(
+        'dbname' => 'silex',
+	'user' => 'silex',
+	'password' => 'silex',
+	'host' => '127.0.0.1',
+	'driver' => 'pdo_mysql',
+    ),
+));
+
+
 //On lance l'application
 $app->run();

@@ -3,52 +3,48 @@
 <html lang="fr-FR">
 <head>
     <meta charset="UTF-8">
-    <title>SilexSkeleton</title>
+    <title>SilexSkeleton title</title>
     <link rel="stylesheet" href="{{ url('index.index') }}bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="{{ url('index.index') }}css/default.css">
 
-    <script type="text/javascript" src="{{ url('index.index') }}bootstrap/js/bootstrap.js"></script>
     <script type="text/javascript" src="{{ url('index.index') }}bootstrap/js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="{{ url('index.index') }}bootstrap/js/bootstrap.js"></script>
 
 
 </head>
 <body>
-<header>
-    <body data-spy="scroll" data-target=".navbar">
-
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="navbar-inner"><section id="I-F" noNumber="1">
-
-            <div class="container">
-                <a class="brand" href="#">SilexSkeleton</a>
-
-                <div class="nav-collapse collapse">
-                    <p class="navbar-text pull-right">
-
-                        <b>Nous sommes le {{ "now"|date("d/m/Y") }} </b>
-                    </p>
-                    <ul class="nav" role="navigation">
-                        <li><a href="{{ path("index.index") }}">Accueil</a></li>
-                        <li><a href="{{ path("index.info") }}">Info</a></li>
-
-                    </ul>
-                </div>
-            </div>
+    <header>
+        <div class="page-header">
+            <h1>VPN-SSH-GW</h1>
         </div>
-    </div>
+        <!-- <body data-spy="scroll" data-target=".navbar">  -->
+        <nav class="nav nav-pills" role="navigation">
+            <li class='active'><a href="#">some text</a></li>
+            <li class='dropdown'> 
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">sub menu<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">some text</a></li>
+                    <li class="divider"><a href="#"></a></li>
+                    <li><a href="#">some text</a></li>
+                </ul>
+            </li>
+            <li class=''><a href="#">some text</a></li>
+            <li class=''><a href="#">some text</a></li>
+            
+            <p class="navbar-text navbar-right">Signed in as XXXX</p>
+        </nav>
+    </header>
+    <section>
+        <div id="content">
 
+            {% block content %} 
+            {% endblock %}
 
-</header>
-<div id="content">
+        </div>
+    </section>
+    <footer>
 
-    {% block content %}ls 
-    {% endblock %}
-
-</div>
-
-<footer>
-
-</footer>
+    </footer>
 
 </body>
 </html>
